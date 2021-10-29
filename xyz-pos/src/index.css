@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap");
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
@@ -6,6 +7,20 @@ body {
 }
 
 nav {
+  position: fixed;
+  top: 0;
+  width: 90%;
+}
+
+.container-transparant-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+}
+
+.container-red-navbar {
+  background-color: rgb(230, 80, 80);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +34,14 @@ nav {
   text-align: center;
 }
 
+.list-white {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 li {
   padding: 0 1.5rem;
   font-weight: 600;
@@ -26,17 +49,30 @@ li {
 
 .logo {
   display: flex;
+  cursor: pointer;
 }
 
 .font-bolder {
   font-weight: bolder;
+  font-weight: 900;
 }
 
 .font-lighter {
   font-weight: lighter;
 }
 
+.font-bolder-white {
+  color: white;
+  font-weight: 900;
+}
+
+.font-lighter-white {
+  color: white;
+  font-weight: lighter;
+}
+
 .button-sign-in {
+  display: block;
   font-family: "Nunito", sans-serif;
   font-size: 23px;
   font-weight: bolder;
@@ -46,13 +82,30 @@ li {
   background-color: none;
   padding: 0.5rem 1rem;
   border-radius: 25px;
+  cursor: pointer;
+  width: 150px;
+}
+
+.button-sign-in-red {
+  display: block;
+  font-family: "Nunito", sans-serif;
+  font-size: 23px;
+  font-weight: bolder;
+  color: white;
+  margin-left: 1rem;
+  border: 4px solid white;
+  background-color: rgb(230, 80, 80);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  width: 150px;
 }
 
 .landing-page {
   align-items: center;
-  padding: 1rem 5rem;
   justify-content: space-between;
   display: flex;
+  padding: 1rem 5rem;
 }
 
 .flex {
@@ -76,6 +129,7 @@ li {
   padding: 0.5rem 1rem;
   padding-bottom: 10px;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .button-landing-page-two {
@@ -91,14 +145,25 @@ li {
   padding-left: 0em;
   padding-top: 10px;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .grid {
   display: grid;
+  padding-top: 110px;
+}
+
+.grid-berlangganan {
+  display: grid;
+}
+
+.grid-statement {
+  padding-top: 50px;
 }
 
 .statement {
-  padding-bottom: 40px;
+  padding-top: 60px;
+  padding-bottom: 10px;
 }
 
 .button-daftar {
@@ -106,5 +171,126 @@ li {
 }
 
 .button-pelajari {
-  padding-bottom: 70px;
+  padding-top: 10px;
+  padding-bottom: 110px;
+}
+
+.berlangganan-navbar {
+  cursor: pointer;
+}
+
+#toPelajari {
+  align-items: center;
+  padding: 1rem 5rem;
+  justify-content: space-between;
+  display: flex;
+}
+
+.flex-card {
+  align-items: center;
+  padding: 1rem 7rem;
+  padding-bottom: 5rem;
+  justify-content: space-between;
+  display: flex;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(230, 80, 80);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.center-text {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  width: 32%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 25px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  text-align: center;
+  padding: 2px 16px;
+  display: grid;
+}
+
+.card-flex {
+  margin-bottom: -2rem;
+  justify-content: center;
+  display: flex;
+}
+.card-pcs {
+  padding-top: 50px;
+}
+
+.card-harga {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.title-card {
+  margin-bottom: -1rem;
+  color: rgb(230, 80, 80);
+}
+
+.card-desc {
+  margin-bottom: -1rem;
+  padding-top: -30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.card-desc p {
+  padding-left: 1rem;
+}
+
+.card-desc svg {
+  width: 2.5rem;
+}
+
+.button-aku-mau {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  width: 300px;
+  color: white;
+  margin-left: 3.5rem;
+  margin-top: 1.5rem;
+  background-color: rgb(230, 80, 80);
+  padding: 0.5rem 1rem;
+  margin-bottom: 3rem;
+  border: 4px solid rgb(230, 80, 80);
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.best-seller {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+  width:auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  /* margin-left: 3.5rem;
+  margin-top: 1.5rem; */
+  background-color: rgb(230, 80, 80);
+  padding: 0.5rem 1rem;
+  border: 5px solid rgb(230, 80, 80);
 }

@@ -1,55 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link as LinktoBerlangganan, animateScroll as scroll  } from "react-scroll";
 
 export default function Navbar() {
-  const buttonMasuk = () => {
-    console.log("masuk");
+  const [navbar, setNavbar] = useState(false);
+
+  const changeBackgroundNavbar = () => {
+    if (window.scrollY >= 100) setNavbar(true);
+    else setNavbar(false);
   };
+
+  window.addEventListener("scroll", changeBackgroundNavbar);
   return (
-    <div className="container-navbar">
-      <nav>
-        <div className="logo">
-          {/* <Link className="router" to="/"> */}
-          <h1 className="font-lighter">xyz</h1>
-          <h1 className="font-bolder">POS</h1>
-          {/* </Link> */}
-        </div>
-        <div>
-          <ul className="logo">
-            <li className="list">
-              {/* <Link className="router" to="/"> */}
-              Fitur
-              {/* </Link> */}
-            </li>
-            <li className="list">
-              {/* <Link className="router list" to="/locations"> */}
-              Berlangganan
-              {/* </Link> */}
-            </li>
-            {/* {
-              localStorage.getItem("access_token") ? 
-              <li className="list">
-            <Link className="router list" to="/history">
-              History
-            </Link>
-          </li> : ''
-          } */}
-
-            {/* {
-              localStorage.getItem("access_token") ?  <li className="list" onClick={()=>logOut()} style={{cursor: 'pointer'}}>
-              <i class="fas fa-sign-out-alt"></i>
-              </li> : ''
-          } */}
-
-            <li className="list">
-              <button onClick={buttonMasuk} className="button-sign-in">
-                Masuk
-              </button>
-              {/* <Link className="router button grow" to="/register"> */}
-              {/* </Link> */}
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <nav
+      className={
+        navbar ? "container-red-navbar" : "container-transparant-navbar"
+      }
+    >
+      <div className="logo" onClick={() => scroll.scrollToTop()}>
+        {/* <Link className="router" to="/"> */}
+        <h1 className={navbar ? "font-lighter-white" : "font-lighter"}>xyz</h1>
+        <h1 className={navbar ? "font-bolder-white" : "font-bolder"}>POS</h1>
+        {/* </Link> */}
+      </div>
+      <div>
+        <ul className="logo">
+          <li className={navbar ? "list-white" : "list"}>
+            {/* <Link className="router" to="/"> */}
+            Fitur
+            {/* </Link> */}
+          </li>
+          <li className={navbar ? "list-white" : "list"}>
+            <LinktoBerlangganan to="toPelajari" smooth={true} duration={1000}>
+              <div className="berlangganan-navbar">Berlangganan</div>
+            </LinktoBerlangganan>
+          </li>
+          <li className={navbar ? "list-white" : "list"}>
+            <button
+              // onClick={buttonMasuk}
+              className={navbar ? "button-sign-in-red" : "button-sign-in"}
+            >
+              Masuk
+            </button>
+            {/* <Link className="router button grow" to="/register"> */}
+            {/* </Link> */}
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }

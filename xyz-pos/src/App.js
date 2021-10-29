@@ -1,11 +1,13 @@
 // import logo from './logo.svg';
 import React from 'react';
-import Navbar from './components/navbar';
-import LandingPage from './pages/LandingPage';
 import {
   Switch,
   Route
 } from "react-router-dom";
+
+import Navbar from './components/navbar';
+import LandingPage from './pages/LandingPage';
+import Footer from './components/footer';
 
 export default function App() {
   return (
@@ -28,6 +30,7 @@ export default function App() {
           <LandingPage></LandingPage>
         </Route>
       </Switch>
+      <Footer />
     </>
   );
 }
