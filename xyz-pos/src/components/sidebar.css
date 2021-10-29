@@ -1,0 +1,219 @@
+#sidebar {
+  height: 100%;
+  overflow: auto;
+  display: flex;
+}
+
+.sidenav {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-top: 60px;
+  text-align: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  color: rgb(230, 80, 80);
+  top: 0;
+  left: 0px;
+  font-size: 36px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.cursor {
+  cursor: pointer;
+  text-align: end;
+  padding-top: 2rem;
+  padding-right: 2rem;
+}
+
+#mySidenav a {
+  text-decoration: none;
+}
+
+.nama {
+  text-align: left;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.email {
+  text-align: left;
+  font-size: 17px;
+  font: lighter;
+}
+
+.keluar {
+  text-align: left;
+  font-size: 18px;
+  color: rgb(230, 80, 80);
+  cursor: pointer;
+}
+
+.flex-sidebar {
+  display: flex;
+  padding-left: 1rem;
+}
+
+.flex-sidebar-menu {
+  margin-bottom: -2rem;
+  cursor: pointer;
+  display: flex;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+}
+
+.flex-sidebar-menu-dashboard{
+  margin-bottom: -2rem;
+  cursor: pointer;
+  display: flex;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+  background-color: rgb(150, 141, 139);
+}
+
+.menu {
+  padding-left: 1rem;
+  margin-top: -1rem;
+}
+
+.next-dashboard {
+  padding-left: 98px;
+  margin-top: -1rem;
+}
+
+.next-produk {
+  padding-left: 139px;
+  margin-top: -1rem;
+}
+
+.next-laporan {
+  padding-left: 126px;
+  margin-top: -1rem;
+}
+
+.next-pengaturan {
+  padding-left: 89px;
+  margin-top: -1rem;
+}
+
+.user {
+  padding-left: 1rem;
+}
+
+.dashboard-big {
+  padding-top: 1rem;
+  display: grid;
+  padding-left: 2rem;
+}
+
+.dashboard-small {
+  display: grid;
+  padding-left: 23rem;
+}
+
+.dashboard-first {
+  font-size: 17px;
+  font: lighter;
+}
+
+.dashboard-second {
+  font-size: 25px;
+  font-weight: bolder;
+  padding-bottom: 1rem;
+}
+
+.box {
+  display: grid;
+  margin-right: 1rem;
+  width: 240px;
+  color: white;
+  background-color: rgb(230, 80, 80);
+  border: 4px solid white;
+  padding: 1rem 1rem;
+  border-radius: 25px;
+}
+
+.lighter {
+  font-weight: lighter;
+  font-size: 17px;
+}
+
+.font-kecil {
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.table {
+  padding: 1rem 2rem;
+  border: 4px solid white;
+  border-radius: 25px;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 93%;
+  min-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr {
+  border-top: 2px solid rgb(147, 138, 138);
+  border-right: 2px solid rgb(147, 138, 138);
+  border-left: 2px solid rgb(147, 138, 138);
+  background-color: white;
+  color: black;
+  width: 100%;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  border-bottom: 2px solid rgb(147, 138, 138);
+}
+
+.table tbody tr {
+  border-bottom: 2px solid rgb(147, 138, 138);
+  border-top: 2px solid rgb(147, 138, 138);;
+}
+
+.table tbody tr:nth-of-type(even) {
+  border-top: 2px solid rgb(147, 138, 138);
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(147, 138, 138);
+}
+
+.table table {
+  border-right: 2px solid rgb(147, 138, 138);
+  border-left: 2px solid rgb(147, 138, 138);
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 100%;
+  min-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.first-table {
+  font-family: "Nunito", sans-serif;
+  font-size: 30px;
+}
+

@@ -8,29 +8,21 @@ import {
 import Navbar from './components/navbar';
 import LandingPage from './pages/LandingPage';
 import Footer from './components/footer';
+import Dashboard from './pages/Dashboard';
 
 export default function App() {
   return (
     <>
-      <Navbar></Navbar>
       <Switch>
-        {/* <Route path="/create-user">
-          <FormCreateUser></FormCreateUser>
+        <Route path="/dashboard">
+          <Dashboard></Dashboard>
         </Route>
-        <Route path="/create-product">
-          <FormCreateProduct></FormCreateProduct>
-        </Route>
-        <Route path="/formedit/:id">
-          <FormEdit></FormEdit>
-        </Route>
-        <Route path="/signin">
-          <FormLogin></FormLogin>
-        </Route> */}
         <Route path="/">
+          <Navbar></Navbar>
           <LandingPage></LandingPage>
+          <Footer />
         </Route>
       </Switch>
-      <Footer />
     </>
   );
 }

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Link as LinktoDown } from "react-scroll";
 import { useDispatch, useSelector } from "react-redux";
 import { getCards } from "../store/actions/index";
-// import { Link } from "react-router-dom";
 
 export default function LandingPages() {
   const dispatch = useDispatch();
