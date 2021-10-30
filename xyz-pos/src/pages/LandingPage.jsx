@@ -1,18 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link as LinktoDown } from "react-scroll";
 import { useDispatch, useSelector } from "react-redux";
 import { getCards } from "../store/actions/index";
+import ModalRegister from "../components/ModalRegister";
+import { animateScroll as scroll  } from "react-scroll";
 
 export default function LandingPages() {
+  const cardOne = useSelector((state) => state.cardOne);
+  const cardTwo = useSelector((state) => state.cardTwo);
+  const cardThree = useSelector((state) => state.cardThree);
+  const [showModalRegister, setShowModalRegister] = useState(false);
+  const [showModalLogin, setModalLogin] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCards());
   }, [dispatch]);
 
-  const cardOne = useSelector((state) => state.cardOne);
-  const cardTwo = useSelector((state) => state.cardTwo);
-  const cardThree = useSelector((state) => state.cardThree);
+  const openModalRegister = () => {
+    setShowModalRegister((prev) => !prev);
+  };
+
+  const duplicateFunction = () => {
+    openModalRegister()
+    scroll.scrollToTop()
+  }
 
   return (
     <div className="grid">
@@ -26,7 +38,10 @@ export default function LandingPages() {
             </div>
             <div className="grid-statement">
               <div className="button-daftar">
-                <button className="button-landing-page-one">
+                <button
+                  onClick={() => openModalRegister()}
+                  className="button-landing-page-one"
+                >
                   Daftar sekarang
                 </button>
               </div>
@@ -39,6 +54,12 @@ export default function LandingPages() {
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <ModalRegister
+            showModalRegister={showModalRegister}
+            setShowModalRegister={setShowModalRegister}
+          ></ModalRegister>
         </div>
         <div>
           <svg
@@ -776,7 +797,12 @@ export default function LandingPages() {
                 </p>
               </div>
               <div className="card-desc">
-                <button className="button-aku-mau">Aku mau!</button>
+                <button
+                  onClick={() => duplicateFunction()}
+                  className="button-aku-mau"
+                >
+                  Aku mau!
+                </button>
               </div>
             </div>
           </div>
@@ -861,7 +887,12 @@ export default function LandingPages() {
                 </p>
               </div>
               <div className="card-desc">
-                <button className="button-aku-mau">Aku mau!</button>
+                <button
+                  onClick={() => duplicateFunction()}
+                  className="button-aku-mau"
+                >
+                  Aku mau!
+                </button>
               </div>
             </div>
           </div>
@@ -945,7 +976,12 @@ export default function LandingPages() {
                 </p>
               </div>
               <div className="card-desc">
-                <button className="button-aku-mau">Aku mau!</button>
+                <button
+                  onClick={() => duplicateFunction()}
+                  className="button-aku-mau"
+                >
+                  Aku mau!
+                </button>
               </div>
             </div>
           </div>

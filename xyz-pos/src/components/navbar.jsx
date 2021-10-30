@@ -17,17 +17,13 @@ export default function Navbar() {
       }
     >
       <div className="logo" onClick={() => scroll.scrollToTop()}>
-        {/* <Link className="router" to="/"> */}
         <h1 className={navbar ? "font-lighter-white" : "font-lighter"}>xyz</h1>
         <h1 className={navbar ? "font-bolder-white" : "font-bolder"}>POS</h1>
-        {/* </Link> */}
       </div>
       <div>
         <ul className="logo">
           <li className={navbar ? "list-white" : "list"}>
-            {/* <Link className="router" to="/"> */}
             Fitur
-            {/* </Link> */}
           </li>
           <li className={navbar ? "list-white" : "list"}>
             <LinktoBerlangganan to="toPelajari" smooth={true} duration={1000}>
@@ -41,8 +37,6 @@ export default function Navbar() {
             >
               Masuk
             </button>
-            {/* <Link className="router button grow" to="/register"> */}
-            {/* </Link> */}
           </li>
         </ul>
       </div>

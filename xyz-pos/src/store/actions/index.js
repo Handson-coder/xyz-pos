@@ -3,7 +3,12 @@ import {
   CARD_ONE,
   CARD_TWO,
   CARD_THREE,
-  CUSTOMERS
+  CUSTOMERS,
+  CUSTOMER_ONE,
+  CUSTOMER_TWO,
+  CUSTOMER_THREE,
+  CUSTOMER_FOUR,
+  CUSTOMER_FIVE
 } from "../keys";
 
 export function addToCardOne(payload) {
@@ -30,8 +35,38 @@ export function addToCustomersLists(payload) {
     payload,
   };
 }
+export function addToCustomerOne(payload) {
+  return {
+    type: CUSTOMER_ONE,
+    payload,
+  };
+}
+export function addToCustomerTwo(payload) {
+  return {
+    type: CUSTOMER_TWO,
+    payload,
+  };
+}
+export function addToCustomerThree(payload) {
+  return {
+    type: CUSTOMER_THREE,
+    payload,
+  };
+}
+export function addToCustomerFour(payload) {
+  return {
+    type: CUSTOMER_FOUR,
+    payload,
+  };
+}
+export function addToCustomerFive(payload) {
+  return {
+    type: CUSTOMER_FIVE,
+    payload,
+  };
+}
 
-const baseUrl = `http://localhost:9500`
+const baseUrl = `https://handson-xyz-pos.herokuapp.com`
 
 export const getCards = () => {
   return (dispatch) => {
@@ -54,6 +89,11 @@ export const getAllCustomers = () => {
     axios.get(`${baseUrl}/customers`)
       .then(({ data }) => {
         dispatch(addToCustomersLists(data))
+        dispatch(addToCustomerOne(data[0]))
+        dispatch(addToCustomerTwo(data[1]))
+        dispatch(addToCustomerThree(data[2]))
+        dispatch(addToCustomerFour(data[3]))
+        dispatch(addToCustomerFive(data[4]))
       })
       .catch((err) => console.log(err));
   }

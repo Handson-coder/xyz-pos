@@ -9,40 +9,14 @@ export default function Sidebar() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCustomers());
-    calculate(); //eslint-disable-next-line
   }, [dispatch]);
 
-  const [totalProduct, setTotalProduct] = useState(0);
-  const [totalProductTerjual, setTotalProductTerjual] = useState(0);
-  const [totalPenghasilan, setTotalPenghasilan] = useState(0);
-
-  const calculate = () => {
-    if (customers) {
-      setTotalProduct(
-        customers[0].quantity +
-          customers[1].quantity +
-          customers[2].quantity +
-          customers[3].quantity +
-          customers[4].quantity
-      );
-      setTotalProductTerjual(
-        customers[0].quantity +
-          customers[1].quantity +
-          customers[2].quantity +
-          customers[3].quantity +
-          customers[4].quantity
-      );
-      setTotalPenghasilan(
-        customers[0].quantity * customers[0].item_price +
-          customers[1].quantity * customers[1].item_price +
-          customers[2].quantity * customers[2].item_price +
-          customers[3].quantity * customers[3].item_price +
-          customers[4].quantity * customers[4].item_price
-      );
-    }
-  };
-
   const customers = useSelector((state) => state.customers);
+  const customerOne = useSelector((state) => state.customerOne);
+  const customerTwo = useSelector((state) => state.customerTwo);
+  const customerThree = useSelector((state) => state.customerThree);
+  const customerFour = useSelector((state) => state.customerFour);
+  const customerFive = useSelector((state) => state.customerFive);
 
   const history = useHistory();
   const [openedSideNav, setOpenedSideNav] = useState(false);
@@ -198,24 +172,48 @@ export default function Sidebar() {
         <div className="flex">
           <div className="box">
             <div className="lighter">Masa Berlaku Langganan</div>
-            <div>15 Juli 2020</div>
+            <div>11 Juni 2040</div>
           </div>
           <div className="box">
             <div className="lighter">Total Produk</div>
-            <div>{totalProduct}</div>
+            <div>
+              {customerOne?.quantity
+                ? customerOne.quantity +
+                  customerTwo.quantity +
+                  customerThree.quantity +
+                  customerFour.quantity +
+                  customerFive.quantity
+                : 0}
+            </div>
           </div>
           <div className="box">
             <div className="lighter">Produk Terjual</div>
-            <div>{totalProductTerjual}</div>
+            <div>
+              {customerOne?.quantity
+                ? customerOne.quantity +
+                  customerTwo.quantity +
+                  customerThree.quantity +
+                  customerFour.quantity +
+                  customerFive.quantity
+                : 0}
+            </div>
           </div>
           <div className="box">
             <div className="lighter">Total Penghasilan Hari ini</div>
             <div className="flex">
               <p className="font-kecil">Rp</p>
               <p>
-                {totalPenghasilan
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                {customerOne?.quantity
+                  ? (
+                      customerOne.quantity * customerOne.item_price +
+                      customerTwo.quantity * customerTwo.item_price +
+                      customerThree.quantity * customerThree.item_price +
+                      customerFour.quantity * customerFour.item_price +
+                      customerFive.quantity * customerFive.item_price
+                    )
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                  : 0}
               </p>
             </div>
           </div>
@@ -229,35 +227,35 @@ export default function Sidebar() {
           <table>
             <thead>
               <tr>
-                <th>Customer</th>
-                <th>Barang</th>
-                <th>Harga Barang</th>
-                <th>Qty</th>
-                <th>Total</th>
-                <th>Action</th>
+                <th className="align-center">Customer</th>
+                <th className="align-center">Barang</th>
+                <th className="align-center">Harga Barang</th>
+                <th className="align-center">Qty</th>
+                <th className="align-center">Total</th>
+                <th className="align-center">Action</th>
               </tr>
             </thead>
             <tbody>
               {customers?.map((customer) => {
                 return (
                   <tr key={customer.id}>
-                    <td>{customer.name}</td>
-                    <td>{customer.item}</td>
-                    <td>
+                    <td className="align-center">{customer.name}</td>
+                    <td className="align-center">{customer.item}</td>
+                    <td className="align-center">
                       Rp{" "}
                       {customer.item_price
                         .toString()
                         .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                     </td>
-                    <td>{customer.quantity}</td>
-                    <td>
+                    <td className="align-center">{customer.quantity}</td>
+                    <td className="align-center">
                       Rp{" "}
                       {(+customer.quantity * +customer.item_price)
                         .toString()
                         .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                     </td>
                     <td>
-                      <button>Lihat Detail</button>
+                      <button className="button-table">Lihat Detail</button>
                     </td>
                   </tr>
                 );
