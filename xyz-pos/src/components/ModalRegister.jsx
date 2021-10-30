@@ -15,12 +15,12 @@ export default function ModalRegister({
     fullname: "",
     username: ""
   });
+
   const inputValue = (e, key) => {
     const newUser = { ...user };
     newUser[key] = e.target.value;
     setUser(newUser);
   };
-
   
   const registerButton = () => {
     const data = {
@@ -34,7 +34,7 @@ export default function ModalRegister({
         Swal.fire({
           icon: "info",
           title: "Yeay, Success Registering as a new user!",
-          text: `have a nice look ${data.fullname}`,
+          text: `You can now login, and have a nice look ${data.fullname} :)`,
         });
       })
       .catch((err) => {
