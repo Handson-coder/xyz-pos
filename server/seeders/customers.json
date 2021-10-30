@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Cahyono",
+    "item": "Motherboard",
+    "item_price": 980000,
+    "quantity": 2
+  },
+  {
+    "name": "Budi",
+    "item": "Hardisk",
+    "item_price": 680000,
+    "quantity": 3
+  },
+  {
+    "name": "Joni",
+    "item": "VGA Card",
+    "item_price": 877000,
+    "quantity": 2
+  },
+  {
+    "name": "Ucok",
+    "item": "Keyboard",
+    "item_price": 200000,
+    "quantity": 4
+  },
+  {
+    "name": "Betty",
+    "item": "CPU",
+    "item_price": 12700000,
+    "quantity": 1
+  }
+]
