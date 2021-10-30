@@ -2,7 +2,8 @@ import axios from 'axios'
 import {
   CARD_ONE,
   CARD_TWO,
-  CARD_THREE
+  CARD_THREE,
+  CUSTOMERS
 } from "../keys";
 
 export function addToCardOne(payload) {
@@ -23,6 +24,14 @@ export function addToCardThree(payload) {
     payload,
   };
 }
+export function addToCustomersLists(payload) {
+  return {
+    type: CUSTOMERS,
+    payload,
+  };
+}
+
+const baseUrl = `http://localhost:9500`
 
 export const getCards = () => {
   return (dispatch) => {
@@ -39,3 +48,13 @@ export const getCards = () => {
       .catch((err) => console.log(err));
   };
 };
+
+export const getAllCustomers = () => {
+  return (dispatch) => {
+    axios.get(`${baseUrl}/customers`)
+      .then(({ data }) => {
+        dispatch(addToCustomersLists(data))
+      })
+      .catch((err) => console.log(err));
+  }
+}

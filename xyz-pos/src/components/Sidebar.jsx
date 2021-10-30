@@ -1,9 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { getAllCustomers } from "../store/actions/index";
+
 import "./sidebar.css";
 
 export default function Sidebar() {
-  const history = useHistory()
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCustomers());
+    calculate(); //eslint-disable-next-line
+  }, [dispatch]);
+
+  const [totalProduct, setTotalProduct] = useState(0);
+  const [totalProductTerjual, setTotalProductTerjual] = useState(0);
+  const [totalPenghasilan, setTotalPenghasilan] = useState(0);
+
+  const calculate = () => {
+    if (customers) {
+      setTotalProduct(
+        customers[0].quantity +
+          customers[1].quantity +
+          customers[2].quantity +
+          customers[3].quantity +
+          customers[4].quantity
+      );
+      setTotalProductTerjual(
+        customers[0].quantity +
+          customers[1].quantity +
+          customers[2].quantity +
+          customers[3].quantity +
+          customers[4].quantity
+      );
+      setTotalPenghasilan(
+        customers[0].quantity * customers[0].item_price +
+          customers[1].quantity * customers[1].item_price +
+          customers[2].quantity * customers[2].item_price +
+          customers[3].quantity * customers[3].item_price +
+          customers[4].quantity * customers[4].item_price
+      );
+    }
+  };
+
+  const customers = useSelector((state) => state.customers);
+
+  const history = useHistory();
   const [openedSideNav, setOpenedSideNav] = useState(false);
 
   const openNav = () => {
@@ -16,9 +57,9 @@ export default function Sidebar() {
   };
 
   const signOut = () => {
-    localStorage.clear()
-    history.push("/")
-  }
+    localStorage.clear();
+    history.push("/");
+  };
   return (
     <div id="sidebar">
       <div id="mySidenav" className="sidenav">
@@ -43,7 +84,9 @@ export default function Sidebar() {
               <b>Test</b>
             </div>
             <div className="email">test@mail.com</div>
-            <div onClick={signOut} className="keluar">Keluar</div>
+            <div onClick={signOut} className="keluar">
+              Keluar
+            </div>
           </div>
         </div>
         <div className="closebtn" onClick={closeNav}>
@@ -159,23 +202,29 @@ export default function Sidebar() {
           </div>
           <div className="box">
             <div className="lighter">Total Produk</div>
-            <div>500</div>
+            <div>{totalProduct}</div>
           </div>
           <div className="box">
             <div className="lighter">Produk Terjual</div>
-            <div>1000</div>
+            <div>{totalProductTerjual}</div>
           </div>
           <div className="box">
-            <div className="lighter">Total Keuntungan</div>
+            <div className="lighter">Total Penghasilan Hari ini</div>
             <div className="flex">
               <p className="font-kecil">Rp</p>
-              <p>15.000.000</p>
+              <p>
+                {totalPenghasilan
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+              </p>
             </div>
           </div>
         </div>
         {/* Table */}
         <div className="table">
-          <div className="first-table"><b>Penjualan hari ini</b></div>
+          <div className="first-table">
+            <b>Penjualan hari ini</b>
+          </div>
           <div>{new Date().toDateString()}</div>
           <table>
             <thead>
@@ -189,14 +238,30 @@ export default function Sidebar() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Rp 6000</td>
-                <td>6000</td>
-                <td>6000</td>
-                <td>6000</td>
-              </tr>
+              {customers?.map((customer) => {
+                return (
+                  <tr key={customer.id}>
+                    <td>{customer.name}</td>
+                    <td>{customer.item}</td>
+                    <td>
+                      Rp{" "}
+                      {customer.item_price
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                    </td>
+                    <td>{customer.quantity}</td>
+                    <td>
+                      Rp{" "}
+                      {(+customer.quantity * +customer.item_price)
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                    </td>
+                    <td>
+                      <button>Lihat Detail</button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

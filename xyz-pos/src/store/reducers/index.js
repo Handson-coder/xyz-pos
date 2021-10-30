@@ -2,12 +2,14 @@
 import {
   CARD_ONE,
   CARD_TWO,
-  CARD_THREE
+  CARD_THREE,
+  CUSTOMERS
 } from "../keys";
 const initialState = {
   cardOne: {},
   cardTwo: {},
   cardThree: {},
+  customers: []
 };
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -17,6 +19,8 @@ function reducer(state = initialState, action) {
       return { ...state, cardTwo: action.payload };
     case CARD_THREE:
       return { ...state, cardThree: action.payload };
+    case CUSTOMERS:
+      return { ...state, customers: action.payload };
     default:
       return state;
   }
