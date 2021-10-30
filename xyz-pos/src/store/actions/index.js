@@ -104,3 +104,8 @@ export const login = (data) => {
    return axios.post(`${baseUrl}/users/login`, data)
   }
 }
+export const register = (data) => {
+  return (dispatch) => {
+   return axios.post(`${baseUrl}/users/register`, data)
+  }
+}

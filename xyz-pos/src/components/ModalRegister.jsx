@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { register } from "../store/actions/index";
+import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 
 export default function ModalRegister({
   showModalRegister,
   setShowModalRegister,
 }) {
 
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -15,6 +19,37 @@ export default function ModalRegister({
     const newUser = { ...user };
     newUser[key] = e.target.value;
     setUser(newUser);
+  };
+
+  
+  const registerButton = () => {
+    const data = {
+      email: user.email,
+      password: user.password,
+      fullname: user.fullname,
+      username: user.username,
+    };
+    dispatch(register(data))
+      .then(({ data }) => {
+        Swal.fire({
+          icon: "info",
+          title: "Yeay, Success Registering as a new user!",
+          text: `have a nice look ${data.fullname}`,
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "info",
+          title: "Oops...",
+          text: `${err.response.data.message}`,
+        });
+        setUser({
+          email: "",
+          password: "",
+          fullname: "",
+          username: "",
+        });
+      });
   };
   return (
     <div className="background">
@@ -747,7 +782,7 @@ export default function ModalRegister({
                     <button
                       type="button"
                       className="btn btn-neutral text-primary-content"
-                      // onClick={registerButton}
+                      onClick={registerButton}
                     >
                       Daftar
                     </button>
