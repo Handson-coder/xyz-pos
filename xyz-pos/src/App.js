@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import Navbar from './components/navbar';
-import LandingPage from './pages/LandingPage';
+// import LandingPage from './pages/LandingPage';
 import Footer from './components/footer';
 import Dashboard from './pages/Dashboard';
 
@@ -19,7 +19,7 @@ export default function App() {
         </Route>
         <Route path="/">
           <Navbar></Navbar>
-          <LandingPage></LandingPage>
+          {/* <LandingPage></LandingPage> */}
           <Footer />
         </Route>
       </Switch>

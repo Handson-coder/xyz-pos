@@ -98,3 +98,9 @@ export const getAllCustomers = () => {
       .catch((err) => console.log(err));
   }
 }
+
+export const login = (data) => {
+  return (dispatch) => {
+   return axios.post(`${baseUrl}/users/login`, data)
+  }
+}

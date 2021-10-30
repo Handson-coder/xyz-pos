@@ -3,14 +3,14 @@ import { Link as LinktoDown } from "react-scroll";
 import { useDispatch, useSelector } from "react-redux";
 import { getCards } from "../store/actions/index";
 import ModalRegister from "../components/ModalRegister";
-import { animateScroll as scroll  } from "react-scroll";
+import ModalLogin from "../components/ModalLogin";
+import { animateScroll as scroll } from "react-scroll";
 
-export default function LandingPages() {
+export default function LandingPages({ showModalLogin, setModalLogin }) {
   const cardOne = useSelector((state) => state.cardOne);
   const cardTwo = useSelector((state) => state.cardTwo);
   const cardThree = useSelector((state) => state.cardThree);
   const [showModalRegister, setShowModalRegister] = useState(false);
-  const [showModalLogin, setModalLogin] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,9 +22,9 @@ export default function LandingPages() {
   };
 
   const duplicateFunction = () => {
-    openModalRegister()
-    scroll.scrollToTop()
-  }
+    openModalRegister();
+    scroll.scrollToTop();
+  };
 
   return (
     <div className="grid">
@@ -60,6 +60,10 @@ export default function LandingPages() {
             showModalRegister={showModalRegister}
             setShowModalRegister={setShowModalRegister}
           ></ModalRegister>
+          <ModalLogin
+            showModalLogin={showModalLogin}
+            setModalLogin={setModalLogin}
+          ></ModalLogin>
         </div>
         <div>
           <svg

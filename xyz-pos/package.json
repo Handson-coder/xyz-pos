@@ -17,6 +17,7 @@
     "react-spring": "^9.0.0-rc.3",
     "redux-thunk": "^2.4.0",
     "styled-components": "^5.3.3",
+    "sweetalert2": "^11.1.9",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

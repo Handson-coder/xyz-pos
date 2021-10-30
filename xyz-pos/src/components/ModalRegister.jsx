@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ModalRegister({
   showModalRegister,
   setShowModalRegister,
 }) {
+
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+    fullname: "",
+    username: ""
+  });
+  const inputValue = (e, key) => {
+    const newUser = { ...user };
+    newUser[key] = e.target.value;
+    setUser(newUser);
+  };
   return (
     <div className="background">
       {showModalRegister ? (
@@ -694,14 +706,14 @@ export default function ModalRegister({
                   </g>
                 </svg>
                 <form>
-                  <h1>Masuk</h1>
+                  <h1>Buat Akun</h1>
                   <div className="form-control">
                     <input
                       type="text"
                       placeholder="fullname"
                       className="input input-bordered label-text"
-                      // onChange={(e) => inputValue(e, "fullname")}
-                      // value={user.fullname}
+                      onChange={(e) => inputValue(e, "fullname")}
+                      value={user.fullname}
                     />
                   </div>
                   <div className="form-control">
@@ -709,8 +721,8 @@ export default function ModalRegister({
                       type="text"
                       placeholder="username"
                       className="input input-bordered label-text"
-                      // onChange={(e) => inputValue(e, "username")}
-                      // value={user.username}
+                      onChange={(e) => inputValue(e, "username")}
+                      value={user.username}
                     />
                   </div>
                   <div className="form-control">
@@ -718,8 +730,8 @@ export default function ModalRegister({
                       type="text"
                       placeholder="email"
                       className="input input-bordered label-text"
-                      // onChange={(e) => inputValue(e, "email")}
-                      // value={user.email}
+                      onChange={(e) => inputValue(e, "email")}
+                      value={user.email}
                     />
                   </div>
                   <div className="form-control">
@@ -727,8 +739,8 @@ export default function ModalRegister({
                       type="password"
                       placeholder="password"
                       className="input input-bordered label-text"
-                      // onChange={(e) => inputValue(e, "password")}
-                      // value={user.password}
+                      onChange={(e) => inputValue(e, "password")}
+                      value={user.password}
                     />
                   </div>
                   <div className="form-control mt-8">
