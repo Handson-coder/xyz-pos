@@ -55,9 +55,11 @@ export default function Sidebar() {
           </div>
           <div className="user">
             <div className="nama">
-              <b>Test</b>
+              <b>{localStorage.fullname ? localStorage.fullname : "test"}</b>
             </div>
-            <div className="email">test@mail.com</div>
+            <div className="email">
+              {localStorage.email ? localStorage.email : "test@mail.com"}
+            </div>
             <div onClick={signOut} className="keluar">
               Keluar
             </div>
@@ -168,7 +170,9 @@ export default function Sidebar() {
         className={openedSideNav ? "dashboard-small" : "dashboard-big"}
       >
         <div className="dashboard-first">Dashboard</div>
-        <div className="dashboard-second">Halo, Test!</div>
+        <div className="dashboard-second">
+          Halo, {localStorage.username ? localStorage.username : "Test"}!
+        </div>
         <div className="flex">
           <div className="box">
             <div className="lighter">Masa Berlaku Langganan</div>
